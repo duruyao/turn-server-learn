@@ -1,14 +1,14 @@
 # TURN-Server Docs
 
-> Written by Du RuYao for Cai ZhiTong.
+> Written by Du RuYao for you, new guy.
 
 ## 1. 理论基础
 
 这里有在接手**转发服务器**之前，你要知道的。
 
-### 1.1. 浅谈 P2P 
+### 1.1. 浅谈P2P 
 
-你需要对 P2P 有一定的了解，但不必过于深入。
+你需要对P2P有一定的了解，但不必过于深入。
 
 - [P2P通信原理与实现](https://zhuanlan.zhihu.com/p/26796476)
 
@@ -16,9 +16,9 @@
 
 - [P2P标准协议之TURN](https://zhuanlan.zhihu.com/p/26797422)
 
-### 1.2. TURN 协议
+### 1.2. TURN协议
 
-必要的情况下，你可能需要深入 TURN 协议，下面的文档详细且方便查阅，里面有你想知道的一切。不急于完全理解，遇到底层问题时，记得回来读它。
+必要的情况下，你可能需要深入TURN协议，下面的文档详细且方便查阅，里面有你想知道的一切。不急于完全理解，遇到底层问题时，记得回来读它。
 
 - [Traversal Using Relays around NAT (TURN)](https://tools.ietf.org/id/draft-ietf-behave-turn-08.html)
 
@@ -107,61 +107,63 @@
 
 ## 3. 安装 turnserver
 
-关于TURN协议，有很多实现，`turnserver` 是对其在服务端的实现之一，也是我们在使用和要掌握的那个。
+关于TURN协议，有很多实现，`turnserver`是对其在服务端的实现之一，也是我们在使用和要掌握的那个。
 
 ### 3.1. 下载
 
-目前使用的版本为 `turnserver-3.2.3.95`, 也可以编译安装其他版本做性能上的对比。
+目前使用的版本为`turnserver-3.2.3.95`, 也可以编译安装其他版本做性能上的对比。
 
-- [turnserver 各个版本源代码](http://turnserver.open-sys.org/downloads/)
+- [turnserver各个版本源代码](http://turnserver.open-sys.org/downloads/)
 
 ### 3.2. 编译安装
 
-为保持与线上环境一致，建议在 [CentOS]() 下编译安装(事实上，明确楚依赖，大部分Linux发行版都可以)。
+为保持与线上环境一致，建议在[CentOS](https://www.centos.org/download/) 下编译安装(事实上，明确楚依赖，大部分Linux发行版都可以)。
 
-- [turnserver 服务端部署(优先参考)](https://www.kancloud.cn/vim26/v1/578933)
+- [turnserver服务端部署(优先参考)](https://www.kancloud.cn/vim26/v1/578933)
 
 - [Install Turnserver In Ubuntu(我整理的)](https://gitee.com/duruyao/TURN-Server-Docs/tree/master/install_docs/install_turnserver_in_ubuntu.pdf)
 
-编译安装过程中可能出现的问题(我更希望一切顺利)。
+编译安装过程中可能出现的问题(望一切顺利)。
 
 - [OpenSSL Crypto development libraries are not installed properly in required location
 ](https://unix.stackexchange.com/questions/523193/openssl-crypto-development-libraries-are-not-installed-properly-in-required-loca)
 
 - [Cannot bind TCP/TLS listener socket to addr XX.XX.XX.XX:3478](https://unix.stackexchange.com/questions/523240/cannot-bind-tcp-tls-listener-socket-to-addr-xx-xx-xx-xx3478)
 
-更多问题请咨询 [stackoverflow](https://stackoverflow.com/) 以及 [Stack Exchange](https://stackexchange.com/)。
+更多问题请咨询[stackoverflow](https://stackoverflow.com/)以及[Stack Exchange](https://stackexchange.com/)。
 
 
 ---
 
-## 4. 部署 turnserver
+## 4. 部署turnserver
 
 尽管“**使用**”本身不是一件困难的事，但想要登峰造极仍要花些功夫。
 
-### 4.1. 概览
+### 4.1. 部署概览
 
-那些部署前你需要了解的，详见官方 README。
+那些部署前你需要了解的，详见官方`README`。
 
 - [github readme of turnserver](https://github.com/coturn/coturn/wiki/README)
 
 ### 4.2. 服务端参数
 
-turnserver 的具体参数配置详见官方 Wiki，请仔细阅读。
+turnserver 的具体参数配置详见官方`Wiki`，**请仔细阅读**。
 
 - [github wiki of turnserver](https://github.com/coturn/coturn/wiki/turnserver)
 
-### 4.3. 客户端 Demo
+### 4.3. 客户端Demo
 
-turnserver 编译生成多个程序，`bin/` 目录下除了我们要特别关注的 `turnserver`、`turnadmin` 外，还包括了客户端 Demo `turnutils_uclient` 与对等端 Demo `turnutils_peer` 。利用如上 Demo 可以更方便测试(如丢包率)，也可以阅读代码知晓客户端(对等端)对 TURN 协议的实现。
+turnserver源代码编译生成多个程序，`bin/`目录下除了我们要特别关注的`turnserver`、`turnadmin`外，还包括了客户端Demo `turnutils_uclient`与对等端Demo`turnutils_peer`。
 
-客户端 Demo 的具体参数配置详见官方 Wiki。
+利用如上Demo可以更方便测试(如丢包率)，也可以阅读代码知晓客户端(对等端)对TURN协议的实现。
+
+客户端Demo的具体参数配置详见官方`Wiki`。
 
 - [github wiki of turnutils_uclient](https://github.com/coturn/coturn/wiki/turnutils_uclient)
 
-### 4.4. 对等端 Demo
+### 4.4. 对等端Demo
 
-服务端 Demo 的具体参数配置详见官方 Wiki。
+对等端Demo的具体参数配置详见官方`Wiki`。
 
 - [github wiki of turnutils_peer](https://github.com/coturn/coturn/wiki/turnutils_peer)
 
