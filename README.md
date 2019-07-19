@@ -1,6 +1,6 @@
 # TURN-Server Docs
 
-> The docs is written by Du RuYao for new guy.
+> The docs is written by Du RuYao for new member.
 
 ## 1. 理论基础
 
@@ -8,7 +8,7 @@
 
 ### 1.1. 浅谈P2P 
 
-你需要对P2P有一定的了解，但不必过于深入（但请读完）。
+你需要对P2P有一定的了解，虽然不必过于深入（但请读完）。
 
 - [P2P通信原理与实现](https://zhuanlan.zhihu.com/p/26796476)
 
