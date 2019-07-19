@@ -27,7 +27,7 @@
 
 ## 2. 工作机制
 
-若你看过了前面推荐的文章，应该对**转发服务器**有了一些了解，结合下述图解与上述理论基础，希望帮你更深入。
+若你看过了前面推荐的文章，应该对**转发服务器**有了一些了解，结合下述图解与上述理论基础，希望帮你更深入。也可以直接来我的文章[Turnserver Working Mechanism](https://graycat0918.github.io/2019/06/30/turnserver-working-mechanism/#more)。
 
 ### 2.1. Allocate
 
@@ -166,6 +166,16 @@ turnserver源代码编译生成多个程序，`bin/`目录下除了我们要特�
 对等端Demo的具体参数配置详见官方`Wiki`。
 
 - [github wiki of turnutils_peer](https://github.com/coturn/coturn/wiki/turnutils_peer)
+
+## 5. turnserver代码
+
+## 6. 福利
+
+我的一个公开库，收藏有关IT的电子书(中文、英文、有标签、无标签)，会录取更新，欢迎分享。
+
+劳动成果值得尊重，追求知识无可厚非。
+
+- [ebooks of graycat0918](https://github.com/graycat0918/ebooks)
 
 ---
 
