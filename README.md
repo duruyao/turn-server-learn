@@ -186,7 +186,7 @@ turnserver源代码编译生成多个程序，`bin/`目录下除了我们要特�
 
 ### 5.2. 函数调用
 
-下图的并不是一张完整的函数调用图，希望能对你有一点点的帮助（我对此十分不确定）。
+下图并不是一张完整的函数调用图，希望能对你有**一点点**的帮助（我对此十分不确定）。
 
 请在新标签页查看大图。
 
@@ -214,7 +214,7 @@ turnserver源代码编译生成多个程序，`bin/`目录下除了我们要特�
 
 通过阅读下面的文档，了解转发服务器在整个系统中的地位和作用。
 
-- [三级联动指挥处理系统](https://gitee.com/duruyao/TURN-Server-Docs/tree/master/docs/)
+- [三级联动指挥处理系统文档](https://gitee.com/duruyao/TURN-Server-Docs/tree/master/docs/)
 
 ## 7. 其他
 
