@@ -120,7 +120,7 @@
 
 - [turnserver服务端部署(优先参考)](https://www.kancloud.cn/vim26/v1/578933)
 
-- [Install Turnserver In Ubuntu(我整理的)](https://gitee.com/duruyao/TURN-Server-Docs/tree/master/install_docs/install_turnserver_in_ubuntu.pdf)
+- [Install Turnserver In Ubuntu(我整理的)](https://gitee.com/duruyao/TURN-Server-Docs/tree/master/docs/install_turnserver_in_ubuntu.pdf)
 
 编译安装过程中可能出现的问题（望一切顺利）。
 
@@ -210,7 +210,13 @@ turnserver源代码编译生成多个程序，`bin/`目录下除了我们要特�
 
 ---
 
-## 6. 其他
+## 6. 位置&作用
+
+通过阅读下面的文档，了解转发服务器在整个系统中的地位和作用。
+
+- [三级联动指挥处理系统](https://gitee.com/duruyao/TURN-Server-Docs/tree/master/docs/)
+
+## 7. 其他
 
 我的一个公开库，收藏有关IT的电子书（中文、英文、有标签、无标签），会持续更新，欢迎提交，分享你的爱书。
 
