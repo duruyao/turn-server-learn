@@ -1,6 +1,6 @@
 # TURN-Server Docs
 
-> Written by Du RuYao for you, new guy.
+> The docs is written by Du RuYao for new guy.
 
 ## 1. 理论基础
 
@@ -167,7 +167,11 @@ turnserver源代码编译生成多个程序，`bin/`目录下除了我们要特�
 
 - [github wiki of turnutils_peer](https://github.com/coturn/coturn/wiki/turnutils_peer)
 
+---
+
 ## 5. turnserver代码
+
+---
 
 ## 6. 福利
 
