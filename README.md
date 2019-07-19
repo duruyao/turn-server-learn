@@ -8,7 +8,7 @@
 
 ### 1.1. 浅谈P2P 
 
-你需要对P2P有一定的了解，但不必过于深入。
+你需要对P2P有一定的了解，但不必过于深入（但请读完）。
 
 - [P2P通信原理与实现](https://zhuanlan.zhihu.com/p/26796476)
 
@@ -92,7 +92,7 @@
 
 - Send/Data Indication中多加的36字节信息会加重客户端和服务端之间的带宽压力，所以该方法使用另一种数据包格式ChannelData message。
 
-- ChannelData message不使用STUN头部，使用一个4字节的头部,包含了一个称之为信道号的值(channel number)，每个信道号都与一个特定的Peer绑定，作为对等端地址的一个记号。
+- ChannelData message不使用STUN头部，使用一个4字节的头部,包含了一个称之为信道号的值（channel number），每个信道号都与一个特定的Peer绑定，作为对等端地址的一个记号。
 
 ![](img/channel_bind.png)
 
@@ -110,19 +110,19 @@
 
 ### 3.1. 下载
 
-目前使用的版本为`turnserver-3.2.3.95`, 也可以编译安装其他版本做性能上的对比(命令上会有些许不同，请仔细对比)。
+目前使用的版本为`turnserver-3.2.3.95`, 也可以编译安装其他版本做性能上的对比（命令参数上会有些许不同，请仔细对比）。
 
 - [turnserver各个版本源代码](http://turnserver.open-sys.org/downloads/)
 
 ### 3.2. 编译安装
 
-为保持与线上环境一致，建议在[CentOS](https://www.centos.org/download/) 下编译安装(事实上，明确依赖，大部分Linux发行版都可以)。
+为保持与线上环境一致，建议在[CentOS](https://www.centos.org/download/) 下编译安装（事实上，明确依赖，大部分Linux发行版都可以）。
 
 - [turnserver服务端部署(优先参考)](https://www.kancloud.cn/vim26/v1/578933)
 
 - [Install Turnserver In Ubuntu(我整理的)](https://gitee.com/duruyao/TURN-Server-Docs/tree/master/install_docs/install_turnserver_in_ubuntu.pdf)
 
-编译安装过程中可能出现的问题(望一切顺利)。
+编译安装过程中可能出现的问题（望一切顺利）。
 
 - [OpenSSL Crypto development libraries are not installed properly in required location
 ](https://unix.stackexchange.com/questions/523193/openssl-crypto-development-libraries-are-not-installed-properly-in-required-loca)
@@ -154,7 +154,7 @@ turnserver 的具体参数配置详见官方`Wiki`，**请仔细阅读**。
 
 turnserver源代码编译生成多个程序，`bin/`目录下除了我们要特别关注的`turnserver`、`turnadmin`外，还包括了客户端Demo `turnutils_uclient`与对等端Demo`turnutils_peer`。
 
-利用如上Demo可以更方便测试(如丢包率)，也可以阅读代码知晓客户端(对等端)对TURN协议的实现。
+利用如上Demo可以更方便测试（如丢包率测试），也可以阅读代码知晓客户端(对等端)对TURN协议的实现。
 
 客户端Demo的具体参数配置详见官方`Wiki`。
 
@@ -186,7 +186,11 @@ turnserver源代码编译生成多个程序，`bin/`目录下除了我们要特�
 
 ### 5.2. 函数调用
 
+下图的并不是一张完整的函数调用图，希望能对你有一点点的帮助（我对此十分不确定）。
 
+请在新标签页查看大图。
+
+![](img/turnserver_module.jpg)
 
 ### 5.3. 其他开源库
 
@@ -198,6 +202,8 @@ turnserver源代码编译生成多个程序，`bin/`目录下除了我们要特�
 
 你在服务端的网络编程已经开始了，接触越来越多的协议是不可避免的。
 
+比如这两个，教科书中很少提及却很常用。其他的靠积累吧。
+
 - [SSL](https://baike.baidu.com/item/SSL)
 
 - [TLS](https://zh.wikipedia.org/wiki/%E5%82%B3%E8%BC%B8%E5%B1%A4%E5%AE%89%E5%85%A8%E6%80%A7%E5%8D%94%E5%AE%9A)
@@ -206,9 +212,9 @@ turnserver源代码编译生成多个程序，`bin/`目录下除了我们要特�
 
 ## 6. 其他
 
-我的一个公开库，收藏有关IT的电子书(中文、英文、有标签、无标签)，会持续更新，欢迎分享。
+我的一个公开库，收藏有关IT的电子书（中文、英文、有标签、无标签），会持续更新，欢迎提交，分享你的爱书。
 
-抵制盗版，支持整版，劳动成果值得尊重，追求知识无可厚非。
+抵制盗版，支持正版，劳动成果值得尊重，追求知识无可厚非。
 
 - [ebooks of graycat0918](https://github.com/graycat0918/ebooks)
 
