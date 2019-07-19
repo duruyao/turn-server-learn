@@ -4,7 +4,7 @@
 
 ## 1. 理论基础
 
-这里有在接手**转发服务器**之前，你要知道的。
+这里有在接手**转发服务器**之前，你所要知道的。
 
 ### 1.1. 浅谈P2P 
 
@@ -18,16 +18,15 @@
 
 ### 1.2. TURN协议
 
-必要的情况下，你可能需要深入TURN协议，下面的文档详细且方便查阅，里面有你想知道的一切。不急于完全理解，遇到底层问题时，记得回来读它。
+必要的情况下，你可能需要深入TURN协议，下面的文档详细且方便查阅，里面有你想知道的一切。不急于完全理解，遇到问题时，回来读它。
 
 - [Traversal Using Relays around NAT (TURN)](https://tools.ietf.org/id/draft-ietf-behave-turn-08.html)
-
 
 ---
 
 ## 2. 工作机制
 
-若你看过了前面推荐的文章，应该对**转发服务器**有了一些了解，结合下述图解与上述理论基础，希望帮你更深入。也可以直接来我的文章[Turnserver Working Mechanism](https://graycat0918.github.io/2019/06/30/turnserver-working-mechanism/#more)。
+若你已看过前面推荐的文章，应该对**转发服务器**有了一些了解，结合下述图解与上述理论基础，希望帮你更深入。也可以直接看我的博客文章[Turnserver Working Mechanism](https://graycat0918.github.io/2019/06/30/turnserver-working-mechanism/#more)。
 
 ### 2.1. Allocate
 
@@ -107,17 +106,17 @@
 
 ## 3. 安装 turnserver
 
-关于TURN协议，有很多实现，`turnserver`是对其在服务端的实现之一，也是我们在使用和要掌握的那个。
+关于TURN协议，有很多实现，开源项目`turnserver`是对其在服务端的众多实现之一，也是我们在使用和要掌握的那个。
 
 ### 3.1. 下载
 
-目前使用的版本为`turnserver-3.2.3.95`, 也可以编译安装其他版本做性能上的对比。
+目前使用的版本为`turnserver-3.2.3.95`, 也可以编译安装其他版本做性能上的对比(命令上会有些许不同，请仔细对比)。
 
 - [turnserver各个版本源代码](http://turnserver.open-sys.org/downloads/)
 
 ### 3.2. 编译安装
 
-为保持与线上环境一致，建议在[CentOS](https://www.centos.org/download/) 下编译安装(事实上，明确楚依赖，大部分Linux发行版都可以)。
+为保持与线上环境一致，建议在[CentOS](https://www.centos.org/download/) 下编译安装(事实上，明确依赖，大部分Linux发行版都可以)。
 
 - [turnserver服务端部署(优先参考)](https://www.kancloud.cn/vim26/v1/578933)
 
@@ -167,22 +166,49 @@ turnserver源代码编译生成多个程序，`bin/`目录下除了我们要特�
 
 - [github wiki of turnutils_peer](https://github.com/coturn/coturn/wiki/turnutils_peer)
 
+### 4.5. 压力测试
+
+对于测试turnserver的丢包率，为了一劳永逸，我已经编写好了一个**自动化压测程序**。相信调好参数、改动极少量的代码后仍适用于你现在的情况。
+
+如果不知道**它**在哪，请咨询库的管理员。
+
 ---
 
 ## 5. turnserver代码
 
+阅读大型开源项目是一件痛苦又痛快的事，通常来说，会有很多工具辅助理清项目的思路。但对于深入阅读**turnserver**，我不知道该推荐什么，毕竟**他**是真正的**剑道宗师**，将C语言挥舞得出神入化，任何工具都不足以解析他的刀法，除了时间。
+
+多花些时间，每多读懂一行，你的刀法将更精进一点。
+
+### 5.1. 程序入口
+
+你已经知道了turnserver源代码会编译生成多个二进制可执行程序，而我们最关注的`turnserver`的程序入口`main()`在`src/apps/relay/mainrelay.c`中。
+
+### 5.2. 函数调用
+
+
+
+### 5.3. 其他开源库
+
+在turnserver源代码中多次用到了[OpenSSL](https://www.openssl.org/)、[libevent](https://libevent.org/)，事实上在**安全通信**与**多路IO复用**上，他们的确很好用。
+
+去了解他们，不止现在，以后也用得到。
+
+### 5.4. 其他协议
+
+你在服务端的网络编程已经开始了，接触越来越多的协议是不可避免的。
+
+- [SSL](https://baike.baidu.com/item/SSL)
+
+- [TLS](https://zh.wikipedia.org/wiki/%E5%82%B3%E8%BC%B8%E5%B1%A4%E5%AE%89%E5%85%A8%E6%80%A7%E5%8D%94%E5%AE%9A)
+
 ---
 
-## 6. 福利
+## 6. 其他
 
-我的一个公开库，收藏有关IT的电子书(中文、英文、有标签、无标签)，会录取更新，欢迎分享。
+我的一个公开库，收藏有关IT的电子书(中文、英文、有标签、无标签)，会持续更新，欢迎分享。
 
-劳动成果值得尊重，追求知识无可厚非。
+抵制盗版，支持整版，劳动成果值得尊重，追求知识无可厚非。
 
 - [ebooks of graycat0918](https://github.com/graycat0918/ebooks)
 
----
-
-**<center>持续进行，未完成</center>**
-
----
