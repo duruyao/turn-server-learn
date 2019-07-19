@@ -6,7 +6,7 @@
 
 这里有在接手**转发服务器**之前，你要知道的。
 
-### 1.1. 浅谈 P2P & STUN & TURN 
+### 1.1. 浅谈 P2P 
 
 你需要对 P2P 有一定的了解，但不必过于深入。
 
@@ -23,9 +23,11 @@
 - [Traversal Using Relays around NAT (TURN)](https://tools.ietf.org/id/draft-ietf-behave-turn-08.html)
 
 
+---
+
 ## 2. 工作机制
 
-若你看过了我推荐的文章，应该对**转发服务器**有了一些了解，结合下述图解与上述理论基础，希望帮你更深入。
+若你看过了前面推荐的文章，应该对**转发服务器**有了一些了解，结合下述图解与上述理论基础，希望帮你更深入。
 
 ### 2.1. Allocate
 
@@ -101,7 +103,9 @@
 
 - 和Allocation不同的是，信道绑定没有直接删除绑定的方法，只能等待其超时自动失效。
 
-## 3. 安装
+---
+
+## 3. 安装 turnserver
 
 关于TURN协议，有很多实现，`turnserver` 是对其在服务端的实现之一，也是我们在使用和要掌握的那个。
 
@@ -117,7 +121,7 @@
 
 - [turnserver 服务端部署(优先参考)](https://www.kancloud.cn/vim26/v1/578933)
 
-- [Install Turnserver In Ubuntu(我整理的)](https://gitlab.com/graycat0918/turn-server-docs/install_docs/install_turnserver.html)
+- [Install Turnserver In Ubuntu(我整理的)](https://gitee.com/duruyao/TURN-Server-Docs/tree/master/install_docs/install_turnserver_in_ubuntu.pdf)
 
 编译安装过程中可能出现的问题(我更希望一切顺利)。
 
@@ -129,7 +133,11 @@
 更多问题请咨询 [stackoverflow](https://stackoverflow.com/) 以及 [Stack Exchange](https://stackexchange.com/)。
 
 
-## 4. 部署
+---
+
+## 4. 部署 turnserver
+
+尽管“**使用**”本身不是一件困难的事，但想要登峰造极仍要花些功夫。
 
 ### 4.1. 概览
 
