@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)file:///tmp/mume2019518-23961-xvujfi.vgyeh.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>install_turnserver_in_ubuntu</title>
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///home/dry/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.4.1/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <style> 
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+ 
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="install-turnserver-in-ubuntu">Install Turnserver In Ubuntu</h1>
+
+<blockquote>
+<p>Orgininzed by Ruyao Du.</p>
+</blockquote>
+<h2 class="mume-header" id="%E5%87%86%E5%A4%87">准备</h2>
+
+<ul>
+<li><strong>OS</strong>: <a href="https://ubuntu.com/download/desktop">Ubuntu 18.04.2 LTS</a></li>
+<li><strong>Coturn</strong>: <a href="http://turnserver.open-sys.org/downloads/v3.2.3.95/">turnserver-3.2.3.95</a></li>
+</ul>
+<h2 class="mume-header" id="%E5%AE%89%E8%A3%85">安装</h2>
+
+<ol>
+<li>安装环境依赖<code>OpenSSL</code>, <code>Libevent</code></li>
+</ol>
+<pre data-role="codeBlock" data-info="shell" class="language-shell">$ <span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> openssl openssl-devel openssl-libs libevent libevent-devel
+    <span class="token punctuation">..</span>.
+</pre><ol start="2">
+<li>编译 &amp; 安装</li>
+</ol>
+<pre data-role="codeBlock" data-info="shell" class="language-shell">$ <span class="token function">cd</span> turnserver-3.2.3.95/
+$ ./configure
+    <span class="token punctuation">..</span>.
+$ <span class="token function">sudo</span> <span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span>
+    <span class="token punctuation">..</span>.
+</pre><h2 class="mume-header" id="%E9%85%8D%E7%BD%AE">配置</h2>
+
+<ol>
+<li>查看可用网卡信息</li>
+</ol>
+<ul>
+<li><strong>Wireless interface</strong>: <code>wlp0s20f3</code></li>
+<li><strong>Ethernet interface</strong>: <code>enp0s20f0u3c4i2</code></li>
+</ul>
+<pre data-role="codeBlock" data-info="shell" class="language-shell">$ <span class="token function">sudo</span> lshw -C network          
+  *-network                 
+       description: Wireless interface
+       <span class="token punctuation">..</span>.
+       physical id: 14.3
+       bus info: pci@0000:00:14.3
+       logical name: wlp0s20f3
+       version: 30
+       serial: 98:2c:bc:9e:09:0d
+       <span class="token punctuation">..</span>.
+       resources: irq:16 memory:a4118000-a411bfff
+  *-network
+       description: Ethernet interface
+       physical id: 3
+       bus info: usb@1:3
+       logical name: enp0s20f0u3c4i2
+       serial: c6:61:8b:1c:e7:28
+       <span class="token punctuation">..</span>.
+</pre><ol start="2">
+<li>查看ip地址(局域网)</li>
+</ol>
+<ul>
+<li><strong>ipv4</strong>: <code>192.168.22.72</code></li>
+</ul>
+<pre data-role="codeBlock" data-info="shell" class="language-shell">$ <span class="token function">ifconfig</span> -a                   
+    <span class="token punctuation">..</span>.
+wlp0s20f3: flags<span class="token operator">=</span>4163<span class="token operator">&lt;</span>UP,BROADCAST,RUNNING,MULTICAST<span class="token operator">&gt;</span>  mtu 1500
+        inet 192.168.22.72  netmask 255.255.248.0  broadcast 192.168.23.255
+        inet6 fe80::c95f:a5b3:440b:3329  prefixlen 64  scopeid 0x20<span class="token operator">&lt;</span>link<span class="token operator">&gt;</span>
+        ether 98:2c:bc:9e:09:0d  txqueuelen 1000  <span class="token punctuation">(</span>Ethernet<span class="token punctuation">)</span>
+        RX packets 359726  bytes 51802683 <span class="token punctuation">(</span>51.8 MB<span class="token punctuation">)</span>
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 39533  bytes 14171580 <span class="token punctuation">(</span>14.1 MB<span class="token punctuation">)</span>
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+</pre><ol start="3">
+<li>新建目录 &amp; 拷贝默认配置文件</li>
+</ol>
+<pre data-role="codeBlock" data-info="shell" class="language-shell">$ <span class="token function">sudo</span> <span class="token function">mkdir</span> /etc/turnserver/
+$ <span class="token function">cd</span> turnserver-3.2.3.95/examples/etc/
+$ <span class="token function">ls</span>
+turn_client_cert.pem  turn_client_pkey.pem  turn_server_cert.pem  turnserver.conf  turn_server_pkey.pem  turnuserdb.conf
+$ <span class="token function">sudo</span> <span class="token function">cp</span> turnserver.conf /etc/turnserver/
+$ <span class="token function">sudo</span> <span class="token function">cp</span> turn_server_*.pem  /etc/turnserver/
+</pre><ol start="4">
+<li>生成coturn用户</li>
+</ol>
+<pre data-role="codeBlock" data-info="shell" class="language-shell">$ <span class="token function">sudo</span> turnadmin -a -u 用户名 -p 密码 -r 域名
+</pre><ol start="5">
+<li>查看用户名 &amp; 域名</li>
+</ol>
+<pre data-role="codeBlock" data-info="shell" class="language-shell">$ turnadmin -l
+    <span class="token punctuation">..</span>.
+</pre><ol start="6">
+<li>编辑配置文件</li>
+</ol>
+<pre data-role="codeBlock" data-info="shell" class="language-shell">$ <span class="token function">cd</span> /etc/turnserver/
+$ <span class="token function">mv</span> turnserver.conf turnserver.conf.bak                <span class="token comment"># 备份</span>
+$ <span class="token function">vim</span> turnserver.conf
+</pre><pre data-role="codeBlock" data-info="conf" class="language-conf"><code># 本地监听的网卡设备，根据实际情况填写
+listening-device=wlp0s20f3
+listening-port=3478
+# 本地用于转发的网卡设备，根据实际情况填写
+relay-device=wlp0s20f3
+# 指定的转发端口的分配范围，测试时，可以将防火墙全部关闭，防止 UDP 端口被屏蔽
+min-port=3480
+max-port=3500
+# 日志输出级别，turnserver 启动时加上 -v,可以得到更清晰的日志输出
+Verbose
+# 消息验证，WebRTC 的消息里会用到
+fingerprint
+# webrtc 通过 turn 中继，必须使用长验证方式
+lt-cred-mech
+# ICE REST API 认证需要
+use-auth-secret
+# REST API 加密所需的 KEY
+# 使用“静态”的 KEY
+static-auth-secret=4080218913
+# 用户登录域，下面的写法可以不改变它，因为再启动 turnserver 时，可以通过指定参数覆盖它
+realm=dry.com
+# 可为 TURN 服务提供更安全的访问
+stale-nonce
+# SSL 需要用到的, 生成命令:
+# sudo openssl req -x509 -newkey rsa:2048 -keyout /etc/turn_server_pkey.pem -out /etc/turn_server_cert.pem -days 99999 -nodes
+# 秘钥文件
+cert=/etc/turnserver/turn_server_cert.pem
+pkey=/etc/turnserver/turn_server_pkey.pem
+# 屏蔽 loopback, multicast IP地址的 relay
+no-loopback-peers
+no-multicast-peers
+# 启用 Mobility ICE 支持
+mobility
+# 禁用本地 telnet cli 管理接口
+no-cli
+</code></pre><h2 class="mume-header" id="%E8%BF%90%E8%A1%8C">运行</h2>
+
+<p>命令</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell">$ <span class="token function">service</span> coturn start          <span class="token comment"># 后台运行</span>
+$ turnserver                    <span class="token comment"># 前台运行（测试阶段推荐）</span>
+</pre><p>参数</p>
+<ul>
+<li><strong>-v</strong> 指定日志级别输出</li>
+<li><strong>-L</strong> 指定网卡ip地址</li>
+<li><strong>-a</strong> 指定使用长期凭证机制</li>
+<li><strong>-f</strong> 指定<strong>turn</strong>消息使用<strong>fingerprint</strong></li>
+<li><strong>-r</strong> 指定使用的域名</li>
+<li><strong>-c</strong> 指定配置文件路径</li>
+</ul>
+<ol>
+<li>运行</li>
+</ol>
+<pre data-role="codeBlock" data-info="shell" class="language-shell">$ <span class="token function">sudo</span> turnserver -v -L 192.168.22.72  -a -f -r 192.168.22.72 -c /etc/turnserver/turnserver.conf
+    <span class="token punctuation">..</span>.
+0: turn server id<span class="token operator">=</span>7 created
+0: IPv4. TCP/TLS listener opened on <span class="token keyword">:</span> 192.168.22.72:3478
+0: IPv4. UDP/DTLS listener opened on: 192.168.22.72:3478
+0: IPv4. TCP/TLS listener opened on <span class="token keyword">:</span> 192.168.22.72:5349
+0: IPv4. UDP/DTLS listener opened on: 192.168.22.72:5349
+0: IO method <span class="token punctuation">(</span>auth thread<span class="token punctuation">)</span>: epoll <span class="token punctuation">(</span>with changelist<span class="token punctuation">)</span>
+0: IO method <span class="token punctuation">(</span>cli thread<span class="token punctuation">)</span>: epoll <span class="token punctuation">(</span>with changelist<span class="token punctuation">)</span>
+0: IPv4. CLI listener opened on <span class="token keyword">:</span> 127.0.0.1:5766
+12: IPv4. tcp or tls connected to: 192.168.22.72:34042
+</pre><ol start="2">
+<li>验证监听</li>
+</ol>
+<pre data-role="codeBlock" data-info="shell" class="language-shell">$ <span class="token function">sudo</span> <span class="token function">lsof</span> -n -i4TCP:3478 <span class="token operator">|</span> <span class="token function">grep</span> LISTEN
+turnserve 21286 root   12u  IPv4 449991      0t0  TCP 192.168.22.72:3478 <span class="token punctuation">(</span>LISTEN<span class="token punctuation">)</span>
+turnserve 21286 root   18u  IPv4 447220      0t0  TCP 192.168.22.72:3478 <span class="token punctuation">(</span>LISTEN<span class="token punctuation">)</span>
+turnserve 21286 root   24u  IPv4 446209      0t0  TCP 192.168.22.72:3478 <span class="token punctuation">(</span>LISTEN<span class="token punctuation">)</span>
+turnserve 21286 root   30u  IPv4 452737      0t0  TCP 192.168.22.72:3478 <span class="token punctuation">(</span>LISTEN<span class="token punctuation">)</span>
+turnserve 21286 root   36u  IPv4 450882      0t0  TCP 192.168.22.72:3478 <span class="token punctuation">(</span>LISTEN<span class="token punctuation">)</span>
+turnserve 21286 root   42u  IPv4 450885      0t0  TCP 192.168.22.72:3478 <span class="token punctuation">(</span>LISTEN<span class="token punctuation">)</span>
+turnserve 21286 root   48u  IPv4 450888      0t0  TCP 192.168.22.72:3478 <span class="token punctuation">(</span>LISTEN<span class="token punctuation">)</span>
+turnserve 21286 root   55u  IPv4 451987      0t0  TCP 192.168.22.72:3478 <span class="token punctuation">(</span>LISTEN<span class="token punctuation">)</span>
+
+$ <span class="token function">sudo</span> <span class="token function">lsof</span> -n -i4TCP:5349 <span class="token operator">|</span> <span class="token function">grep</span> LISTEN
+turnserve 21286 root   13u  IPv4 449992      0t0  TCP 192.168.22.72:5349 <span class="token punctuation">(</span>LISTEN<span class="token punctuation">)</span>
+turnserve 21286 root   19u  IPv4 447221      0t0  TCP 192.168.22.72:5349 <span class="token punctuation">(</span>LISTEN<span class="token punctuation">)</span>
+turnserve 21286 root   25u  IPv4 446210      0t0  TCP 192.168.22.72:5349 <span class="token punctuation">(</span>LISTEN<span class="token punctuation">)</span>
+turnserve 21286 root   31u  IPv4 452738      0t0  TCP 192.168.22.72:5349 <span class="token punctuation">(</span>LISTEN<span class="token punctuation">)</span>
+turnserve 21286 root   37u  IPv4 450883      0t0  TCP 192.168.22.72:5349 <span class="token punctuation">(</span>LISTEN<span class="token punctuation">)</span>
+turnserve 21286 root   43u  IPv4 450886      0t0  TCP 192.168.22.72:5349 <span class="token punctuation">(</span>LISTEN<span class="token punctuation">)</span>
+turnserve 21286 root   49u  IPv4 450889      0t0  TCP 192.168.22.72:5349 <span class="token punctuation">(</span>LISTEN<span class="token punctuation">)</span>
+turnserve 21286 root   56u  IPv4 451988      0t0  TCP 192.168.22.72:5349 <span class="token punctuation">(</span>LISTEN<span class="token punctuation">)</span>
+</pre><ol start="3">
+<li>验证服务</li>
+</ol>
+<pre data-role="codeBlock" data-info="shell" class="language-shell">$ <span class="token function">curl</span> 192.168.22.72:3478
+<span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE html<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>html<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>head<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>title<span class="token operator">&gt;</span>TURN Server<span class="token operator">&lt;</span>/title<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>/head<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>body<span class="token operator">&gt;</span>
+    TURN Server
+  <span class="token operator">&lt;</span>/body<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>/html<span class="token operator">&gt;</span>
+</pre><h2 class="mume-header" id="%E5%8F%82%E8%80%83">参考</h2>
+
+<ul>
+<li>
+<p><a href="https://www.kancloud.cn/vim26/v1/578933">Turnserver服务器搭建</a></p>
+</li>
+<li>
+<p><a href="https://www.jianshu.com/p/49920993b0a7">Coturn配置实现TURN中继传输媒体数据</a></p>
+</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  </body></html>

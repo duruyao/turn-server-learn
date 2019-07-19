@@ -93,30 +93,58 @@
 
 - 和Allocation不同的是，信道绑定没有直接删除绑定的方法，只能等待其超时自动失效
 
-## 3. 安装部署
+## 3. 安装
 
-关于TURN协议，有很多实现，`turnserver` 是对其在服务端的实现，也是我们在使用和要掌握的那个。
+关于TURN协议，有很多实现，`turnserver` 是对其在服务端的实现，也是我们在使用和要掌握的那个
 
 ### 3.1. 下载
 
-目前使用的版本为 `turnserver-3.2.3.95`, 也可以编译安装其他版本做性能上的对比。
+目前使用的版本为 `turnserver-3.2.3.95`, 也可以编译安装其他版本做性能上的对比
 
 - [turnserver 各个版本源代码](http://turnserver.open-sys.org/downloads/)
 
-### 3.2. 安装
+### 3.2. 编译安装
 
-为保持与线上环境一致，建议在[CentOS]()下编译安装(事实上，关系不大)。
+为保持与线上环境一致，建议在 [CentOS]() 下编译安装(事实上，明确楚依赖，大部分Linux发行版都可以)
 
 - [turnserver 服务端部署(优先参考)](https://www.kancloud.cn/vim26/v1/578933)
 
-- [link]()
+- [Install Turnserver In Ubuntu(我整理的)](https://gitlab.com/graycat0918/turn-server-docs/install_docs/install_turnserver.html)
 
-### 3.3. 常见问题
+编译安装过程中可能出现的问题
 
 - [OpenSSL Crypto development libraries are not installed properly in required location
 ](https://unix.stackexchange.com/questions/523193/openssl-crypto-development-libraries-are-not-installed-properly-in-required-loca)
 
 - [Cannot bind TCP/TLS listener socket to addr XX.XX.XX.XX:3478](https://unix.stackexchange.com/questions/523240/cannot-bind-tcp-tls-listener-socket-to-addr-xx-xx-xx-xx3478)
 
-### 3.4. 
+更多问题请咨询 [stackoverflow](https://stackoverflow.com/) 以及 [Stack Exchange](https://stackexchange.com/)
 
+
+## 4. 部署
+
+### 4.1. 概览
+
+那些部署前你需要了解的，详见官方 README
+
+- [github readme of turnserver](https://github.com/coturn/coturn/wiki/README)
+
+### 4.2. 服务端参数
+
+turnserver 的具体参数配置详见官方 Wiki，请仔细阅读
+
+- [github wiki of turnserver](https://github.com/coturn/coturn/wiki/turnserver)
+
+### 4.3. 客户端 Demo
+
+turnserver 编译生成多个程序，`bin/` 目录下除了我们要特别关注的 `turnserver`、`turnadmin` 外，还包括了客户端 Demo `turnutils_uclient` 与对等端 Demo `turnutils_peer` 。利用如上 Demo 可以更方便测试(如丢包率)，也可以阅读代码知晓客户端(对等端)对 TURN 协议的实现。
+
+客户端 Demo 的具体参数配置详见官方 Wiki
+
+- [github wiki of turnutils_uclient](https://github.com/coturn/coturn/wiki/turnutils_uclient)
+
+### 4.4. 对等端 Demo
+
+服务端 Demo 的具体参数配置详见官方 Wiki
+
+- [github wiki of turnutils_peer](https://github.com/coturn/coturn/wiki/turnutils_peer)
