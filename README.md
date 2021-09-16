@@ -213,12 +213,3 @@ turnserver源代码编译生成多个程序，`bin/`目录下除了我们要特�
 通过阅读相关的文档，了解转发服务器在整个系统中的地位和作用。
 
 - [三级联动指挥处理系统文档](https://gitee.com/duruyao/TURN-Server-Docs/tree/master/docs/)
-
-## 7. 其他
-
-我的一个公开库，收藏有关IT的电子书（中文、英文、有标签、无标签），会持续更新，欢迎提交，分享你的爱书。
-
-抵制盗版，支持正版，劳动成果值得尊重，追求知识无可厚非。
-
-- [ebooks of graycat0918](https://github.com/graycat0918/ebooks)
-
